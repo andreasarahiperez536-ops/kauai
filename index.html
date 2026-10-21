@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>para mi caradebola 🎀</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --pink: #ff8fb8;
+  --light: #ffe4ee;
+  --dark: #743d55;
+  --cream: #fffaf5;
+  --purple: #e9dfff;
+  --blue: #dff5ff;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--dark);
+  background-color: #fff5f8;
+  background-image: radial-gradient(#ffc5da 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+  overflow-x: hidden;
+}
+
+button { font-family: inherit; }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 6%;
+  background: #fffaf5ed;
+  backdrop-filter: blur(12px);
+  border-bottom: 2px dashed #ffc1d7;
+}
+
+.logo {
+  font-family: Pacifico, cursive;
+  font-size: 19px;
+  color: #f277a5;
+}
+
+.music {
+  border: 1px solid #ffbad3;
+  border-radius: 25px;
+  padding: 9px 13px;
+  color: var(--dark);
+  background: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.hero {
+  min-height: 88vh;
+  padding: 65px 18px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(145deg, #ffe0ed, #fff5f8 55%, #e9e2ff);
+  overflow: hidden;
+}
+
+.hero::before, .hero::after {
+  content: "🎀";
+  position: absolute;
+  font-size: clamp(45px, 10vw, 90px);
+  opacity: .65;
+  animation: bob 3s ease-in-out infinite;
+}
+
+.hero::before { top: 10%; left: 7%; }
+.hero::after { bottom: 10%; right: 7%; animation-delay: 1s; }
+
+.hero-inner {
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+}
+
+.pill {
+  display: inline-block;
+  padding: 9px 15px;
+  border: 1px solid #ffc0d7;
+  background: #fffaf5;
+  border-radius: 30px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  transform: rotate(-2deg);
+}
+
+h1 {
+  font-family: Pacifico, cursive;
+  font-size: clamp(42px, 10vw, 83px);
+  line-height: 1.3;
+  font-weight: 400;
+  margin: 20px 0 10px;
+  color: #e96e9c;
+  text-shadow: 3px 4px white;
+}
+
+h1 span { color: #aa91df; }
+
+.subtitle {
+  line-height: 1.9;
+  font-size: 15px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.car {
+  font-size: clamp(75px, 16vw, 120px);
+  margin: 16px 0;
+  display: block;
+  filter: drop-shadow(0 7px 0 #ffc6dc);
+  animation: drive 2s ease-in-out infinite;
+}
+
+@keyframes drive {
+  0%,100% { transform: translateX(-12px) rotate(-4deg); }
+  50% { transform: translateX(12px) rotate(4deg); }
+}
+
+@keyframes bob {
+  0%,100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-13px) rotate(8deg); }
+}
+
+.btn {
+  border: 0;
+  border-radius: 30px;
+  padding: 14px 23px;
+  background: #ff8fb8;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 5px 0 #df6593;
+  cursor: pointer;
+  transition: .2s;
+  margin: 8px 4px;
+}
+
+.btn:hover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 0 8px 0 #df6593;
+}
+
+.btn:active { transform: translateY(3px); }
+
+.btn.alt {
+  background: #b8a4ec;
+  box-shadow: 0 5px 0 #9078cf;
+}
+
+main {
+  width: min(780px, 92%);
+  margin: auto;
+  padding: 45px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-family: Pacifico, cursive;
+  font-size: clamp(27px, 6vw, 40px);
+  font-weight: 400;
+  color: #e96e9c;
+  margin-bottom: 22px;
+}
+
+.note {
+  position: relative;
+  padding: clamp(22px, 6vw, 45px);
+  border-radius: 22px;
+  background: var(--cream);
+  border: 2px solid white;
+  outline: 2px dashed #ffb6d0;
+  box-shadow: 0 10px 30px #f7bfd34d;
+  line-height: 1.95;
+  transform: rotate(-.3deg);
+}
+
+.note h2 {
+  font-family: Pacifico, cursive;
+  font-weight: 400;
+  font-size: clamp(23px, 5vw, 32px);
+  color: #e96e9c;
+  line-height: 1.6;
+}
+
+.note p { font-size: 15px; }
+
+.note p::selection { background: #ffd3e3; }
+
+.signature {
+  color: #ba8bd0;
+  font-weight: 700;
+  margin-top: 28px;
+}
+
+.tape {
+  position: absolute;
+  top: -13px;
+  left: 38%;
+  width: 100px;
+  height: 27px;
+  transform: rotate(-5deg);
+  background: #ffc9dcaa;
+}
+
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+  margin: 38px 0;
+}
+
+.sticker {
+  padding: 18px 8px;
+  text-align: center;
+  background: white;
+  border: 2px solid #fff;
+  border-radius: 17px;
+  box-shadow: 0 5px 0 #f5c2d6;
+  font-size: 13px;
+  font-weight: 700;
+  transform: rotate(-2deg);
+  transition: .25s;
+}
+
+.sticker:nth-child(2) {
+  background: #f0eaff;
+  transform: rotate(2deg);
+  box-shadow: 0 5px 0 #d8c9ff;
+}
+
+.sticker:nth-child(3) {
+  background: #e7f8ff;
+  transform: rotate(-1deg);
+  box-shadow: 0 5px 0 #c3e8f6;
+}
+
+.sticker:hover { transform: translateY(-7px) rotate(0); }
+
+.sticker .emoji {
+  display: block;
+  font-size: 34px;
+  margin-bottom: 9px;
+}
+
+.surprise {
+  text-align: center;
+  background: linear-gradient(135deg, #ffe4ee, #f0eaff);
+  padding: 30px 18px;
+  border: 2px dashed #f5a8c7;
+  border-radius: 24px;
+  margin: 35px 0;
+}
+
+.hidden-message {
+  display: none;
+  background: #fffaf5;
+  border-radius: 16px;
+  padding: 20px;
+  line-height: 1.9;
+  margin-top: 20px;
+  animation: appear .5s ease;
+}
+
+.hidden-message.show { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.end {
+  text-align: center;
+  padding: 40px 5px 20px;
+}
+
+.end h2 {
+  font-family: Pacifico, cursive;
+  font-weight: 400;
+  font-size: clamp(34px, 8vw, 57px);
+  color: #e96e9c;
+}
+
+.end p { line-height: 1.8; }
+
+.counter {
+  display: inline-block;
+  background: white;
+  padding: 14px 20px;
+  border-radius: 15px;
+  border: 2px dashed #ffc1d7;
+  margin: 15px 0;
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  background: #ffe3ed;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.floaty {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99;
+  animation: fly 2.2s ease-out forwards;
+}
+
+@keyframes fly {
+  0% { opacity: 1; transform: translateY(0) rotate(0) scale(.8); }
+  100% { opacity: 0; transform: translateY(-240px) rotate(300deg) scale(1.4); }
+}
+
+@media(max-width: 500px) {
+  .sticker-grid { gap: 8px; }
+  .sticker { font-size: 11px; padding: 15px 4px; }
+  .sticker .emoji { font-size: 28px; }
+  .hero::before { left: 3%; }
+  .hero::after { right: 3%; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="topbar">
+  <div class="logo">♡ para mi niño</div>
+  <button class="music" onclick="toggleMusic()" id="musicBtn">
+    🎵 musiquita: off
+  </button>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="pill">🎀 EDICIÓN ESPECIAL · 100% TUYA</div>
+
+    <h1>para mi<br><span>caradebola</span> ♡</h1>
+
+    <p class="subtitle">
+      una cartita hecha con amor, moñitos y un poquito
+      de bullying para ti, sí, tú, el que apesta la cola 😭💕
+    </p>
+
+    <span class="car">🏎️</span>
+
+    <p>♡ advertencia: exceso de amor cursi ♡</p>
+
+    <button class="btn" onclick="abrirCarta()">
+      abre tu cartita, menso ↓
+    </button>
+  </div>
+</header>
+
+<main id="carta">
+
+  <h2 class="section-title">💌 una cosita para ti...</h2>
+
+  <article class="note">
+    <div class="tape"></div>
+
+    <h2>ola esto es para ti, popo jsjshaksvdks ♡</h2>
+
+    <p>
+      sabes q te amo mcuhissiisisml h. y q a pesar de las
+      coaas q han pasado, q tal vez ni soy la mejor persona,
+      créeme q te amo.
+    </p>
+
+    <p>
+      pq no por q me lo has dicho en palabras yo sé q te digo
+      es q no me llega tu amor, pero en un punto estoy
+      equivocada pq sé q tal vez no eres tan detallista,
+      tan amoroso, pero lo q haces por mí, q te preocupas,
+      q me acompañas y nunca me dejas sola, valen más q mil palabras.
+    </p>
+
+    <p>
+      y q nunca me juzgaste cm era, y q conoces cada centímetro
+      mío amándolo, queriéndolo sin pretexto. amas cada cicatriz
+      mía y cada imperfección mía; cada parte de mí la amas
+      y me lo demuestras con otras cosas. y eso es lo q lo
+      hace especial.
+    </p>
+
+    <p>
+      sin querer ya pasó un año q nos conocimos, bueno, más del
+      año, y es súper bnto pq tú dices “no creo esto, no creo
+      el otro”, pero sin querer cierras los ojos y te das cuenta
+      q todo pasa corriendo, q cada pedacito de ti está en mí
+      y cada pedacito de mí está en ti. y eso es bnto.
+    </p>
+
+    <p>
+      sé q no soy la mejor novia, pero créeme q voy a poner
+      más desempeño. sooolo quiero q sepas q te iloviu
+      muchisisisisisisisisismo y q esta cartita digital se
+      quedará mucho tiempo para ti.
+    </p>
+
+    <p>
+      y no sé, muchas cosas… es tan bnto todo, aunq a veces
+      nos enojamos bien arto, pero no importa, amor. yo te amo
+      y te vuelvo a amar aunq me caigas mal jsjs. sabes, amo
+      cada parte de ti y asisisisis pq sisisisi, de ti aprendí
+      muchas cosas.
+    </p>
+
+    <p>
+      te amo y gracias por todo lo q has dado de ti.
+      teamo muchsisisiisisismooooo. ♡
+    </p>
+
+    <p class="signature">
+      — tu novia, la q te molesta pero te ama un montón 🎀
+    </p>
+  </article>
+
+  <div class="sticker-grid">
+    <div class="sticker">
+      <span class="emoji">🏁</span>
+      mi equipo
+    </div>
+    <div class="sticker">
+      <span class="emoji">🧸</span>
+      mi persona
+    </div>
+    <div class="sticker">
+      <span class="emoji">🏎️</span>
+      tú + yo
+    </div>
+  </div>
+
+  <section class="surprise">
+    <h2 class="section-title">🎁 cajita de sorpresas</h2>
+    <p>hay cositas q debes saber, menso jsjs 💗</p>
+
+    <button class="btn" onclick="mostrarSorpresa(1)">
+      razón #1 🎀
+    </button>
+
+    <button class="btn alt" onclick="mostrarSorpresa(2)">
+      razón #2 🧸
+    </button>
+
+    <button class="btn" onclick="mostrarSorpresa(3)">
+      razón #3 💌
+    </button>
+
+    <div class="hidden-message" id="sorpresa">
+      aquí aparecerá una sorpresita ♡
+    </div>
+  </section>
+
+  <section class="end">
+    <p>🏁 FIN DE LA CARTA. EL NOVIO NO SE DEVUELVE.</p>
+
+    <h2>te amo, menso. ♥</h2>
+
+    <p>
+      llegaste hasta aquí, así q ahora tienes una misión
+      importantísima...
+    </p>
+
+    <div class="counter">
+      besitos reclamados: <span id="contador">0</span> 💋
+    </div>
+
+    <br>
+
+    <button class="btn" onclick="besitos()">
+      reclamar besitos 💋
+    </button>
+
+    <button class="btn alt" onclick="lluvia()">
+      lluvia de amor 💗
+    </button>
+
+    <p id="respuesta" aria-live="polite"></p>
+  </section>
+
+</main>
+
+<footer>
+  hecho con amor, moñitos y un poquito de bullying ♡<br>
+  propiedad exclusiva de mi caradebola 🎀
+</footer>
+
+<script>
+let besos = 0;
+let musicOn = false;
+let audioCtx = null;
+let musicTimer = null;
+let noteIndex = 0;
+
+function abrirCarta() {
+  document.getElementById("carta").scrollIntoView({
+    behavior: "smooth"
+  });
+  lluvia();
+}
+
+function lluvia() {
+  const symbols = ["🎀", "💗", "♡", "✨", "💋", "🏎️", "🌸"];
+
+  for (let i = 0; i < 35; i++) {
+    const e = document.createElement("span");
+    e.className = "floaty";
+    e.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.top = (45 + Math.random() * 50) + "vh";
+    e.style.fontSize = (17 + Math.random() * 22) + "px";
+    e.style.animationDelay = Math.random() * .6 + "s";
+
+    document.body.appendChild(e);
+    setTimeout(() => e.remove(), 3000);
+  }
+}
+
+function mostrarSorpresa(n) {
+  const caja = document.getElementById("sorpresa");
+
+  const mensajes = {
+    1: "💗 razón #1: porque aun en los días difíciles sigues siendo alguien muy especial para mí. te amo, menso.",
+    2: "🧸 razón #2: porque me haces sentir acompañada, escuchada y querida con tus pequeñas acciones.",
+    3: "💌 razón #3: porque si volviera a conocerte, me encantaría volver a compartir tantas cositas contigo. ♡"
+  };
+
+  caja.textContent = mensajes[n];
+  caja.classList.remove("show");
+
+  void caja.offsetWidth;
+  caja.classList.add("show");
+
+  lluviaPequena("💗");
+}
+
+function besitos() {
+  besos++;
+  document.getElementById("contador").textContent = besos;
+
+  document.getElementById("respuesta").textContent =
+    besos === 1
+      ? "JAJAJA ya debes 1 besito, ven a pagarlo 💋"
+      : "YA DEBES " + besos + " BESITOS, NO TE HAGAS 😭💗";
+
+  lluviaPequena("💋");
+}
+
+function lluviaPequena(simbolo) {
+  for (let i = 0; i < 10; i++) {
+    const e = document.createElement("span");
+    e.className = "floaty";
+    e.textContent = simbolo;
+    e.style.left = (35 + Math.random() * 30) + "vw";
+    e.style.top = (55 + Math.random() * 25) + "vh";
+    e.style.fontSize = "24px";
+
+    document.body.appendChild(e);
+    setTimeout(() => e.remove(), 2200);
+  }
+}
+
+/* Musiquita opcional generada con el navegador.
+   No necesita archivos de audio externos. */
+function toggleMusic() {
+  const btn = document.getElementById("musicBtn");
+
+  if (!musicOn) {
+    const AudioContextClass =
+      window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioContextClass) {
+      btn.textContent = "🎵 audio no disponible";
+      return;
+    }
+
+    audioCtx = audioCtx || new AudioContextClass();
+
+    audioCtx.resume().then(() => {
+      musicOn = true;
+      btn.textContent = "🎵 musiquita: on ♡";
+      tocarNota();
+    }).catch(() => {
+      btn.textContent = "🎵 toca para activar";
+    });
+  } else {
+    musicOn = false;
+    clearTimeout(musicTimer);
+    btn.textContent = "🎵 musiquita: off";
+  }
+}
+
+function tocarNota() {
+  if (!musicOn || !audioCtx) return;
+
+  const melody = [523.25, 659.25, 783.99, 659.25,
+                  587.33, 698.46, 880, 698.46];
+
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+
+  osc.type = "sine";
+  osc.frequency.value = melody[noteIndex % melody.length];
+
+  gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(
+    0.045, audioCtx.currentTime + 0.04
+  );
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001, audioCtx.currentTime + 0.28
+  );
+
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  osc.start();
+  osc.stop(audioCtx.currentTime + 0.3);
+
+  noteIndex++;
+  musicTimer = setTimeout(tocarNota, 340);
+}
+</script>
+
+</body>
+</html>
